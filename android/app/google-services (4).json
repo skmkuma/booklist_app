@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "738262455767",
+    "project_id": "book-list-app-a222a",
+    "storage_bucket": "book-list-app-a222a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:738262455767:android:5f69d3c4ef9a99322de792",
+        "android_client_info": {
+          "package_name": "com.practice.booklist_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "738262455767-2v1ie46q3gp3hqh36nn4t6gdkosv2ntb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGSbEzo19AamE9x1OvKbRTBih2q8uYQN8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "738262455767-2v1ie46q3gp3hqh36nn4t6gdkosv2ntb.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "738262455767-k4df103hl1sv198gboi759fov6803248.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.practice.booklistApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
