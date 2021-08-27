@@ -1,5 +1,4 @@
 import 'package:booklist_app/add_book/add_book_model.dart';
-import 'package:booklist_app/domain/book.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -22,7 +21,6 @@ class AddBookPage extends StatelessWidget {
                   TextField(
                     decoration: InputDecoration(hintText: '本のタイトル'),
                     onChanged: (text) {
-                      //TODO: ここで取得したテキスト情報の処理
                       model.title = text;
                     },
                   ),
@@ -32,7 +30,6 @@ class AddBookPage extends StatelessWidget {
                   TextFormField(
                     decoration: InputDecoration(hintText: '本の著者'),
                     onChanged: (text) {
-                      //TODO: ここで取得したテキスト情報の処理
                       model.author = text;
                     },
                   ),

@@ -1,8 +1,9 @@
-import 'package:booklist_app/add_book/add_book_model.dart';
 import 'package:booklist_app/add_book/add_book_page.dart';
 import 'package:booklist_app/book_list/book_list_model.dart';
 import 'package:booklist_app/domain/book.dart';
+import 'package:booklist_app/edit_book/edit_book_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:provider/provider.dart';
 
 class BookListPage extends StatelessWidget {
@@ -25,9 +26,48 @@ class BookListPage extends StatelessWidget {
 
             final List<Widget> widgets = books
                 .map(
-                  (book) => ListTile(
-                    title: Text(book.title),
-                    subtitle: Text(book.author),
+                  (book) => Slidable(
+                    // actionPaneの種類: Behind, Drawer, Scroll, Stretch
+                    actionPane: SlidableDrawerActionPane(),
+                    child: ListTile(
+                      title: Text(book.title),
+                      subtitle: Text(book.author),
+                    ),
+                    // 右からのスライド: secondaryActions: <Widget>[]
+                    // 左からのスライド: actions: <Widget>[]
+                    secondaryActions: <Widget>[
+                      IconSlideAction(
+                        caption: '編集',
+                        color: Colors.black45,
+                        icon: Icons.edit,
+                        onTap: () async {
+                          //編集画面に遷移
+                          final String? title = await Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => EditBookPage(book),
+                            ),
+                          );
+
+                          if (title != null) {
+                            final snackbar = SnackBar(
+                                backgroundColor: Colors.green,
+                                content: Text("$titleを更新しました"));
+                            ScaffoldMessenger.of(context)
+                                .showSnackBar(snackbar);
+                          }
+                          model.fetchBookList();
+                        },
+                      ),
+                      IconSlideAction(
+                        caption: '削除',
+                        color: Colors.red,
+                        icon: Icons.delete,
+                        onTap: () {
+                          //削除しますか？ダイアログを表示
+                        },
+                      ),
+                    ],
                   ),
                 )
                 .toList();

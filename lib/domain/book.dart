@@ -1,6 +1,7 @@
 // initializer：クラスの初期化orインスタンス生成されたときに変数を初期化
 class Book {
-  Book(this.title, this.author);
+  Book(this.id, this.title, this.author);
+  String id;
   String title;
   String author;
 }
