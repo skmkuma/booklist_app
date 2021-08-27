@@ -24,4 +24,8 @@ class BookListModel extends ChangeNotifier {
     // notifyListeners(): booksの値が更新され、Consumerが発火する
     notifyListeners();
   }
+
+  Future deleteBook(Book book) {
+    return FirebaseFirestore.instance.collection("books").doc(book.id).delete();
+  }
 }
